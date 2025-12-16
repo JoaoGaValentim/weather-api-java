@@ -1,0 +1,55 @@
+.container {
+    -fx-background-color: #fff;
+}
+
+.header {
+    -fx-padding: 20pt;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #bcbcbc;
+}
+
+.header .label {
+    -fx-font-size: 20pt;
+    -fx-font-weight: bolder;
+}
+
+.form {
+    -fx-padding: 50pt;
+}
+
+.field {
+    -fx-alignment: center;
+    -fx-padding: 10pt;
+    -fx-border-width: 1;
+    -fx-border-color: #bcbcbc;
+    -fx-background-radius: 7pt;
+    -fx-border-radius: 7pt;
+    -fx-background-color: #fff;
+    -fx-font-size: 16pt;
+}
+
+.button {
+    -fx-padding: 10pt;
+    -fx-text-fill: #fff;
+    -fx-background-color: #17f;
+    -fx-pref-width: infinity;
+    -fx-font-size: 16pt;
+    -fx-background-radius: 7pt;
+    -fx-border-radius: 7pt;
+    -fx-cursor: hand;
+}
+
+.response-form {
+    -fx-padding: 50pt;
+}
+
+.not-found {
+    -fx-text-fill: #f00;
+}
+
+.response-form .label {
+    -fx-font-size: 14pt;
+    -fx-pref-width: infinity;
+    -fx-alignment: center;
+    -fx-font-weight: bolder;
+}
