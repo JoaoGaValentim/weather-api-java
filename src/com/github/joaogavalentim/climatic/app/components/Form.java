@@ -3,7 +3,7 @@ package com.github.joaogavalentim.climatic.app.components;
 import java.io.IOException;
 import java.net.URL;
 
-import com.github.joaogavalentim.climatic.app.models.Weather;
+import com.github.joaogavalentim.climatic.app.dto.WeatherResponse;
 import com.github.joaogavalentim.climatic.app.services.WeatherService;
 import com.github.joaogavalentim.climatic.app.services.exceptions.NotFoundException;
 
@@ -35,7 +35,7 @@ public class Form extends VBox {
             String city = weatherField.getText().trim();
             WeatherService service = new WeatherService();
             try {
-                Weather weather = service.getWeatherResponse(city);
+                WeatherResponse weather = service.getWeatherResponse(city);
                 WeatherCard weatherCard = new WeatherCard(weather, stage, scene, css);
 
                 Scene weatherScene = new Scene(weatherCard, 600, 740);

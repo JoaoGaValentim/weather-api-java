@@ -2,7 +2,7 @@ package com.github.joaogavalentim.climatic.app.components;
 
 import java.net.URL;
 
-import com.github.joaogavalentim.climatic.app.models.Weather;
+import com.github.joaogavalentim.climatic.app.dto.WeatherResponse;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -13,7 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class WeatherCard extends BorderPane {
-    public WeatherCard(Weather weather, Stage stage, Scene scene, URL css) {
+    public WeatherCard(WeatherResponse response, Stage stage, Scene scene, URL css) {
         Icon icon = new Icon("https://uxwing.com/wp-content/themes/uxwing/download/weather/weather-icon.png");
 
         Label countryLabel = new Label();
@@ -31,16 +31,17 @@ public class WeatherCard extends BorderPane {
         Header header = new Header();
         VBox data = new VBox();
 
-        if (weather != null) {
-            countryLabel.setText("País: " + weather.getCountry());
-            cityLabel.setText("Cidade: " + weather.getCity());
-            currentDateLabel.setText("Ultima atualização: " + weather.getDateTime());
-            actualTemperatureLabel.setText("Temperatura atual: " + weather.getActualTemperature() + " ˚C");
-            feelsLikeLabel.setText("Sensação térmica: " + weather.getFeelsLike() + " ˚C");
-            timeConditionLabel.setText("Condição do tempo: " + weather.getTimeCondition());
-            humidityLabel.setText("Humidade do ar: " + weather.getHumidity() + "%");
-            windSpeedLabel.setText("Velocidade do vento: " + weather.getWindSpeed() + " km/h");
-            atmosphericPressureLabel.setText("Pressão atmosférica: " + weather.getAtmosphericPressure() + " mb");
+        if (response != null) {
+            countryLabel.setText("País: " + response.weather().getCountry());
+            cityLabel.setText("Cidade: " + response.weather().getCity());
+            currentDateLabel.setText("Ultima atualização: " + response.weather().getDateTime());
+            actualTemperatureLabel.setText("Temperatura atual: " + response.weather().getActualTemperature() + " ˚C");
+            feelsLikeLabel.setText("Sensação térmica: " + response.weather().getFeelsLike() + " ˚C");
+            timeConditionLabel.setText("Condição do tempo: " + response.weather().getTimeCondition());
+            humidityLabel.setText("Humidade do ar: " + response.weather().getHumidity() + "%");
+            windSpeedLabel.setText("Velocidade do vento: " + response.weather().getWindSpeed() + " km/h");
+            atmosphericPressureLabel
+                    .setText("Pressão atmosférica: " + response.weather().getAtmosphericPressure() + " mb");
 
             data.getChildren().addAll(icon, countryLabel, cityLabel, currentDateLabel, actualTemperatureLabel,
                     feelsLikeLabel,
@@ -48,7 +49,7 @@ public class WeatherCard extends BorderPane {
 
         }
 
-        if (weather == null) {
+        if (response.weather() == null) {
             Icon iconNotFound = new Icon("https://static.thenounproject.com/png/1400397-200.png");
             notFoundLabel.setText("Cidade não encontrada");
             notFoundLabel.getStyleClass().add("not-found");
